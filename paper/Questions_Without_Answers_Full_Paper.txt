@@ -1,7 +1,9 @@
 Questions Without Answers: 
 Observing Self-Reference in a Developmental LLM Architecture
 
-[Author name withheld for review]
+Hattoso
+
+DOI: https://doi.org/10.5281/zenodo.18406678
 
 Abstract
 
