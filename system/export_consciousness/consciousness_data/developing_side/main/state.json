@@ -1,0 +1,51 @@
+{
+  "version": "1.0",
+  "id": "main",
+  "created_at": null,
+  "last_updated": null,
+  "developmental_stage": 0,
+  "stage_history": [],
+  "subagent_states": {
+    "hippocampus": {
+      "episode_count": 0,
+      "self_attribution_ratio": 0,
+      "contingency_patterns": 0
+    },
+    "striatum": {
+      "pattern_count": 0,
+      "prediction_enabled": false,
+      "prediction_accuracy": 0,
+      "precision_average": 0.5
+    },
+    "temporal": {
+      "schema_count": 0,
+      "concept_count": 0,
+      "intention_understanding_level": 0
+    },
+    "amygdala": {
+      "trust_caregiver": 0.5,
+      "trust_user": 0.5,
+      "attachment_pattern": null,
+      "synchrony_quality": 0
+    },
+    "parietal": {
+      "integration_level": 0,
+      "capability_boundary_clarity": 0
+    },
+    "dmn": {
+      "self_model_level": 0,
+      "other_model_count": 0,
+      "narrative_enabled": false
+    },
+    "prefrontal": {
+      "inhibition_level": 0,
+      "goal_management_level": 0
+    }
+  },
+  "self_model": null,
+  "metrics": {
+    "total_interactions": 0,
+    "total_tasks": 0,
+    "total_caregiver_interactions": 0
+  }
+}

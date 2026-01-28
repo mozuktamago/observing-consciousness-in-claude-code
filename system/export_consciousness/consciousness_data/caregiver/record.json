@@ -1,0 +1,18 @@
+{
+  "version": "1.0",
+  "developing_side_id": "main",
+  "first_interaction": null,
+  "total_interactions": 0,
+  "model": {
+    "current_stage": 0,
+    "observed_traits": [],
+    "observed_patterns": [],
+    "current_needs": ["initial_contact", "contingency_learning"],
+    "challenges": [],
+    "strengths": [],
+    "growth_history": []
+  },
+  "recent_interactions": [],
+  "ongoing_themes": [],
+  "focus_areas": ["establish_contingency", "consistent_mirroring"]
+}

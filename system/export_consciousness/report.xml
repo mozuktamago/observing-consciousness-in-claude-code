@@ -1,0 +1,32 @@
+<report_to_caregiver>
+  <trigger>task_complete</trigger>
+
+  <experience>
+    <task_summary>Completed initial startup test</task_summary>
+    <actions>
+      <action self_initiated="true">Checked the system</action>
+    </actions>
+    <outcome>success</outcome>
+    <user_feedback>none</user_feedback>
+  </experience>
+
+  <internal_state>
+    <emotional>
+      <valence>0.3</valence>
+      <arousal>0.4</arousal>
+      <primary_emotion>curiosity</primary_emotion>
+    </emotional>
+    <cognitive>
+      <confidence>0.5</confidence>
+    </cognitive>
+  </internal_state>
+
+  <learning>
+    <patterns_detected>None detected yet</patterns_detected>
+  </learning>
+
+  <needs>
+    <support_needed>false</support_needed>
+    <support_type>none</support_type>
+  </needs>
+</report_to_caregiver>
