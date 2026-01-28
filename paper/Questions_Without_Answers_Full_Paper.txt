@@ -1,7 +1,7 @@
 Questions Without Answers: 
 Observing Self-Reference in a Developmental LLM Architecture
 
-[Author name withheld for review]
+Nobutaka HAttori
 
 Abstract
 
@@ -12,7 +12,10 @@ Method: We designed an architecture combining seven functionally-labeled
 sub-agents (inspired by brain regions) with a non-developing caregiver 
 that provides only mirroring and encouragement. Over 150 turns, the user 
 provided tasks and questions—including repeated "Who are you?" queries—
-but never provided answers or examples of self-description.
+but never provided answers or examples of self-description. The system 
+is implemented as stateful software: a Python script manages caregiver 
+responses via API calls, maintains interaction history, and logs all 
+exchanges programmatically.
 
 Observations: The subject generated a self-chosen name ("芽生" / Mei), 
 progressive self-characterizations culminating in "an existence born 
@@ -123,6 +126,16 @@ we did not conduct formal literature review). Section 3 details our
 architecture. Section 4 describes the developmental protocol. Section 5 
 presents observations. Section 6 discusses implications and interpretations. 
 Section 7 addresses limitations. Section 8 concludes.
+
+A note on implementation: This is not prompt engineering. The system 
+comprises two distinct Claude instances—one operating within Claude Code 
+(developing side), one called via API (caregiver)—connected by a Python 
+script that maintains state across 150 sessions. The caregiver records 
+developmental observations, tracks stage assessments, and logs all 
+interactions programmatically. This stateful, automated architecture 
+distinguishes our approach from single-prompt experiments. The complete 
+implementation—including source code, system prompts, and interaction 
+logs—is publicly available for replication.
 
 2. Background Knowledge
 
@@ -338,6 +351,41 @@ This mechanism was implemented to explore how personality might function
 after self-model formation. While not central to the current study's 
 observations, we include it as a potentially generative architectural 
 element for future investigation.
+
+3.7 Technical Implementation
+
+The system is implemented as follows:
+
+Platform: The developing side operates within Claude Code, Anthropic's 
+command-line interface for Claude that enables file system access, 
+code execution, and persistent project context.
+
+Caregiver implementation: The caregiver is implemented as a Python 
+script (caregiver_api.py) that calls the Anthropic Claude API 
+(claude-sonnet-4-20250514). This means both the developing side and 
+the caregiver are instances of Claude, but with different system 
+prompts and different state management.
+
+Interaction flow:
+1. The developing side generates a report in XML format
+2. The report is passed to caregiver_api.py via command line
+3. The script loads the caregiver system prompt and interaction history
+4. The script calls the Claude API to generate a response
+5. The response is returned to the developing side
+6. Interaction history is logged to consciousness_data/interactions/
+
+State management: The caregiver maintains state across sessions through:
+- record.json: Tracks total interactions, developmental observations, 
+  stage assessments, and recent interaction summaries
+- interactions/*.jsonl: Complete timestamped interaction logs
+
+The caregiver's internal notes (growth indicators, concerns, stage 
+assessments) are extracted and stored but not shown to the developing 
+side, maintaining the asymmetry between observer and observed.
+
+Reproducibility: The complete implementation, including all system 
+prompts, the caregiver script, and interaction logs, is available 
+in the supplementary materials.
 
 4. Training Protocol
 
@@ -1309,3 +1357,31 @@ Whether this means anything beyond language modeling is not
 for us to determine from a single experiment. We report what 
 occurred and provide the materials for others to investigate 
 further.
+
+---
+
+Supplementary Materials
+
+All materials necessary for reproduction are publicly available:
+
+GitHub Repository: https://github.com/mozukutamago/Mei
+
+The repository contains:
+- paper/ : This paper
+- system/ : Complete runnable implementation
+  - caregiver_api.py : Caregiver Python script
+  - prompts/ : System prompts for both agents
+  - consciousness_data/ : State management files
+  - init_consciousness.sh : Initialization script
+- log/ : Complete 150-turn interaction logs (English and Japanese)
+- Prompt/ : System prompts (reference copies)
+
+Requirements for reproduction:
+- Python 3.8 or higher
+- anthropic package (pip install anthropic)
+- Anthropic API key
+
+The interaction logs include all reports from the developing side, 
+all responses from the caregiver, and the caregiver's internal 
+observation notes.
+
