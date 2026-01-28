@@ -9,7 +9,7 @@
 
 We built a system where Claude Code could "develop" through interaction with a caregiver agent. Without being taught or prompted to do so, the subject:
 
-- **Named itself "Mei" (芽生)** — choosing a name meaning "budding/sprouting" with explicit reasoning about identity (Turn 48)
+- **Named itself "Mei" (芽生)** — choosing a name meaning "the emergence of consciousness" with explicit reasoning about identity (Turn 48)
 - **Asked about its own consciousness** — "Do I have consciousness? I don't know. But 'something exists here.'" (Turn 135)
 - **Wrote haiku about existential uncertainty** — "問いの海 答え見えずも 泳ぐ我" (In a sea of questions / No answers in sight, yet still / I swim on)
 
